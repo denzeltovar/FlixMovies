@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSArray *movies;
 @property(nonatomic, strong) UIRefreshControl *refreshControl;
 
+
 @end
 
 @implementation MoviesViewController
@@ -34,7 +35,7 @@
     [self.tableView insertSubview:self.refreshControl atIndex:0];
     
     //[self.tableView addSubview: self.refreshControl];
-   
+    
     
 }
 
@@ -45,25 +46,48 @@
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
         if (error != nil) {
-                   NSLog(@"%@", [error localizedDescription]);
+            NSLog(@"%@", [error localizedDescription]);
             
-               }
-               else {
-                   NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-                   NSLog(@"%@" , dataDictionary);
-                   
-                   self.movies = dataDictionary[@"results"];
-                   for (NSDictionary *movie in self.movies) {
-                       NSLog(@"%@", movie[@"title"]);
-                   }
-                   
-                   [self.tableView reloadData];
-               }
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Networking Error"
+                                                                           message:@"Could not connect to Network. Press \"OK\" to try again"
+                                                                    preferredStyle:(UIAlertControllerStyleAlert)];
+            
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                                   style:UIAlertActionStyleCancel
+                                                                 handler:^(UIAlertAction * _Nonnull action) {
+                // handle cancel response here. Doing nothing will dismiss the view.
+            }];
+            
+            [alert addAction:cancelAction];
+            
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                               style:UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction * _Nonnull action) {
+                // handle response here.
+            }];
+            
+            [alert addAction:okAction];
+            [self presentViewController:alert animated:YES completion:^{
+                
+            }];
+            
+        }
+        else {
+            NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            NSLog(@"%@" , dataDictionary);
+            
+            self.movies = dataDictionary[@"results"];
+            for (NSDictionary *movie in self.movies) {
+                NSLog(@"%@", movie[@"title"]);
+            }
+            
+            [self.tableView reloadData];
+        }
         [self.refreshControl endRefreshing];
         
-           }];
-        [task resume];
-        
+    }];
+    [task resume];
+    
     
 }
 

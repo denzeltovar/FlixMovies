@@ -45,31 +45,7 @@
     [self.titleLabel sizeToFit];
     [self.summaryLabel sizeToFit];
     
-    [self.activityIndicator startAnimating];
-    [self.activityIndicator stopAnimating];
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Networking Error"
-           message:@"Could not connect to Network. Press OK to try again"
-    preferredStyle:(UIAlertControllerStyleAlert)];
-    
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
-                                                        style:UIAlertActionStyleCancel
-                                                      handler:^(UIAlertAction * _Nonnull action) {
-                                                             // handle cancel response here. Doing nothing will dismiss the view.
-                                                      }];
-    
-    [alert addAction:cancelAction];
-    
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK \" OK" 
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                             // handle response here.
-                                                     }];
-    
-    [alert addAction:okAction];
-    [self presentViewController:alert animated:YES completion:^{
         
-    }];
 }
 
 /*
