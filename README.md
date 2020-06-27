@@ -1,20 +1,20 @@
 # Project 2 - *Flix movies*
-**** Still Not finished****
-**Name of your app** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **X** hours spent in total
+**Flix Movies** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
+
+Time spent: **About 12** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is complete:
 
-- [ ] User sees an app icon on the home screen and a styled launch screen.
-- [ ] User can view a list of movies currently playing in theaters from The Movie Database.
-- [ ] Poster images are loaded using the UIImageView category in the AFNetworking library.
-- [ ] User sees a loading state while waiting for the movies API.
-- [ ] User can pull to refresh the movie list.
-- [ ] User sees an error message when there's a networking error.
-- [ ] User can tap a tab bar button to view a grid layout of Movie Posters using a CollectionView.
+- [ x] User sees an app icon on the home screen and a styled launch screen.
+- [x ] User can view a list of movies currently playing in theaters from The Movie Database.
+- [x ] Poster images are loaded using the UIImageView category in the AFNetworking library.
+- [x ] User sees a loading state while waiting for the movies API.
+- [x ] User can pull to refresh the movie list.
+- [x ] User sees an error message when there's a networking error.
+- [x ] User can tap a tab bar button to view a grid layout of Movie Posters using a CollectionView.
 
 The following **optional** features are implemented:
 
@@ -25,7 +25,7 @@ The following **optional** features are implemented:
 - [ ] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
 - [ ] Customize the selection effect of the cell.
 - [ ] Customize the navigation bar.
-- [ ] Customize the UI.
+- [x ] Customize the UI.
 
 The following **additional** features are implemented:
 
@@ -33,30 +33,30 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. Setting up a search bar in Xcode and finding the appropiate methods and values that go with them.
+2. Implementation of Cocoapods and what other useful methods can be found to help further customize Xcode.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/utF8CfWZKq.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+ At various points I have made errors and have gotten mixed up trying to implement fuctions from the wrong view controller. I also felt pretty great with the project. Although I didn't get as far as I would have liked I was able to catch up with all members of my group with a two day delay with my technology. 
 
 ## Credits
 
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
 
-- [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
+- [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library --Cocoapods
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2020] [Denzel Tovar]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
