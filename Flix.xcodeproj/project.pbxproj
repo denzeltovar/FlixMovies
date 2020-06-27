@@ -23,6 +23,7 @@
 		CC5B84D424A5BD6600ADC43C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8467A40C24A3DFFB00E69A08 /* Main.storyboard */; };
 		CC5B84D724A654BA00ADC43C /* MoviesGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5B84D624A654BA00ADC43C /* MoviesGridViewController.m */; };
 		CC5B84DA24A65B0C00ADC43C /* MovieCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5B84D924A65B0C00ADC43C /* MovieCollectionCell.m */; };
+		CCA794F124A6F08E0085592F /* CollectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA794F024A6F08E0085592F /* CollectionsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		CC5B84D624A654BA00ADC43C /* MoviesGridViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviesGridViewController.m; sourceTree = "<group>"; };
 		CC5B84D824A65B0C00ADC43C /* MovieCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCollectionCell.h; sourceTree = "<group>"; };
 		CC5B84D924A65B0C00ADC43C /* MovieCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCollectionCell.m; sourceTree = "<group>"; };
+		CCA794EF24A6F08E0085592F /* CollectionsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionsViewController.h; sourceTree = "<group>"; };
+		CCA794F024A6F08E0085592F /* CollectionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionsViewController.m; sourceTree = "<group>"; };
 		D130328A7043B79AFDD937D2 /* Pods-FlixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlixTests.debug.xcconfig"; path = "Target Support Files/Pods-FlixTests/Pods-FlixTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,6 +179,8 @@
 				CC5B84C224A5AAE700ADC43C /* DetailsViewController.m */,
 				CC5B84D524A654BA00ADC43C /* MoviesGridViewController.h */,
 				CC5B84D624A654BA00ADC43C /* MoviesGridViewController.m */,
+				CCA794EF24A6F08E0085592F /* CollectionsViewController.h */,
+				CCA794F024A6F08E0085592F /* CollectionsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -462,6 +467,7 @@
 				8467A40524A3DFFB00E69A08 /* AppDelegate.m in Sources */,
 				84D03A0724A5424300D4227C /* MovieCell.m in Sources */,
 				8467A41624A3E00000E69A08 /* main.m in Sources */,
+				CCA794F124A6F08E0085592F /* CollectionsViewController.m in Sources */,
 				CC5B84D224A5BD3900ADC43C /* MoviesViewController.m in Sources */,
 				CC5B84DA24A65B0C00ADC43C /* MovieCollectionCell.m in Sources */,
 				CC5B84D124A5BD3500ADC43C /* DetailsViewController.m in Sources */,
