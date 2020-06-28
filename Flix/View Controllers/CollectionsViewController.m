@@ -10,6 +10,7 @@
 #import "UIImageView+AFNetworking.h"
 
 @interface CollectionsViewController ()
+//Outlets for CollectionsViewConroller
 @property (weak, nonatomic) IBOutlet UIImageView *colBackdropView;
 @property (weak, nonatomic) IBOutlet UIImageView *colPosterView;
 @property (weak, nonatomic) IBOutlet UILabel *colTitleLabel;

@@ -12,6 +12,7 @@
 
 
 @interface DetailsViewController ()
+//Outlets connected to details view controller
 @property (weak, nonatomic) IBOutlet UIImageView *backdropView;
 @property (weak, nonatomic) IBOutlet UIImageView *posterView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -32,13 +33,13 @@
        NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
     [self.posterView setImageWithURL:posterURL];
     
-
+    //retrieving backdrop image
     NSString *backdropURLString = self.movie[@"backdrop_path"];
        NSString *fullBackdropPosterURLString = [baseURLString stringByAppendingString: backdropURLString];
-       
+       //similar to posterURL but instead returns backdrop poster
        NSURL *backdropURL = [NSURL URLWithString:fullBackdropPosterURLString];
     [self.backdropView setImageWithURL:backdropURL];
-    
+    //Returns title and summary to repective label
     self.titleLabel.text = self.movie[@"title"];
     self.summaryLabel.text = self.movie[@"overview"];
     

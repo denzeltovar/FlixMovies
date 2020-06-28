@@ -29,8 +29,8 @@
     
     [self fetchMovies];
     
+    //Customizion of how the cells will be displayed on screen
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionsView.collectionViewLayout;
-    
     CGFloat posterPerLine = 3;
     CGFloat itemWidth = self.collectionsView.frame.size.width / posterPerLine;
     CGFloat itemHeight = itemWidth *1.5;
@@ -45,6 +45,8 @@
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
         if (error != nil) {
                    NSLog(@"%@", [error localizedDescription]);
+            //Make sure to add navigation error message to all view controller**
+            //Also refresh controller**
             
                }
                else {
@@ -66,10 +68,9 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+// Creating a segue from MoviesFridViewController to CollectionsViewController
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    //Make sure to link to correct subclass**
     UICollectionViewCell *tappedCell = sender;
     NSIndexPath *indexPath = [self.collectionsView indexPathForCell:tappedCell];
     NSDictionary *movie = self.movies[indexPath.item];
@@ -78,7 +79,7 @@
     collectionsViewController.movie = movie;
 }
 
-
+//UICOllectionViewCell instead of UITableViewCell
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     MovieCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MovieCollectionCell" forIndexPath:indexPath];
@@ -96,7 +97,7 @@
     
     return cell;
 }
-
+//returning the amount of cells that needs to be created
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.movies.count;
     
