@@ -5,7 +5,6 @@
 //  Created by denzeltov on 6/26/20.
 //  Copyright © 2020 Denzel Tovar. All rights reserved.
 //
-
 #import "MoviesGridViewController.h"
 #import "MovieCollectionCell.h"
 #import "UIImageView+AFNetworking.h"
@@ -20,7 +19,6 @@
 
 @implementation MoviesGridViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -29,7 +27,6 @@
     
     [self fetchMovies];
     
-    //Customizion of how the cells will be displayed on screen
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionsView.collectionViewLayout;
     CGFloat posterPerLine = 3;
     CGFloat itemWidth = self.collectionsView.frame.size.width / posterPerLine;
@@ -44,33 +41,20 @@
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
         if (error != nil) {
-                   NSLog(@"%@", [error localizedDescription]);
-            //Make sure to add navigation error message to all view controller**
-            //Also refresh controller**
-            
-               }
-               else {
-                   NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-                   NSLog(@"%@" , dataDictionary);
-                   
-                   self.movies = dataDictionary[@"results"];
-                   [self.collectionsView reloadData];
-               }
-        
-        
-           }];
-        [task resume];
-        
-    
+            NSLog(@"%@", [error localizedDescription]);
+        }else {
+            NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            NSLog(@"%@" , dataDictionary);
+            self.movies = dataDictionary[@"results"];
+            [self.collectionsView reloadData];
+        }
+    }];
+    [task resume];
 }
-
-
 
 #pragma mark - Navigation
 
-// Creating a segue from MoviesFridViewController to CollectionsViewController
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    //Make sure to link to correct subclass**
     UICollectionViewCell *tappedCell = sender;
     NSIndexPath *indexPath = [self.collectionsView indexPathForCell:tappedCell];
     NSDictionary *movie = self.movies[indexPath.item];
@@ -79,7 +63,6 @@
     collectionsViewController.movie = movie;
 }
 
-//UICOllectionViewCell instead of UITableViewCell
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     MovieCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MovieCollectionCell" forIndexPath:indexPath];
@@ -87,19 +70,16 @@
     NSDictionary *movie = self.movies[indexPath.item];
     
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
-       NSString *posterURLString = movie[@"poster_path"];
-       NSString *fullPosterURLString = [baseURLString stringByAppendingString: posterURLString];
-       
-       NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
-       cell.posterView.image = nil;
-       [cell.posterView setImageWithURL:posterURL];
+    NSString *posterURLString = movie[@"poster_path"];
+    NSString *fullPosterURLString = [baseURLString stringByAppendingString: posterURLString];
     
+    NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
+    cell.posterView.image = nil;
+    [cell.posterView setImageWithURL:posterURL];
     
     return cell;
 }
-//returning the amount of cells that needs to be created
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.movies.count;
-    
 }
 @end
